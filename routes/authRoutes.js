@@ -10,7 +10,6 @@ authRouter.post(
   '/login',
   expressAsyncHandler(async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
-    console.log(user);
 
     if (user) {
       console.log(req.body.password);
@@ -23,6 +22,7 @@ authRouter.post(
           profilePicture: user.profilePicture,
           email: user.email,
           token: generateToken(user),
+          myList: user.myList
         });
       }
     } else {
@@ -48,6 +48,7 @@ authRouter.post(
       email: user.email,
       profilePicture: user.profilePicture,
       token: generateToken(user),
+      myList: user.myList
     });
   })
 );

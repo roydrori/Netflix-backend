@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 const UserSchema = new mongoose.Schema(
   {
     username: { type: String, required: true, unique: true },
@@ -9,6 +9,8 @@ const UserSchema = new mongoose.Schema(
       default: 'https://i.pravatar.cc/300',
       required: true,
     },
+    nickname: {type: String, required: true, default: "nick"},
+    myList: [{ type: Schema.Types.ObjectId, ref: 'Content', required: true}],
     isAdmin: { type: Boolean, default: false, required: true },
   },
   { timestamps: true }

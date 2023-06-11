@@ -10,7 +10,6 @@ contentRouter.get(
   expressAsyncHandler(async (req, res) => {
     try {
       const data = await Content.find();
-
       res.status(200).json(data.reverse());
     } catch (err) {
       console.log(err);
