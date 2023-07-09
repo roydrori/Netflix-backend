@@ -24,7 +24,7 @@ app.use('/api/list', listsRouter);
 app.use('/api/auth', authRouter);
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect("mongodb+srv://roydrori75:6JGXShyHmAdgLKlK@cluster0.kpz0xbp.mongodb.net/?retryWrites=true&w=majority")
   .then(() => {
     app.listen(port, () => {
       console.log('server is running on port ' + port);
