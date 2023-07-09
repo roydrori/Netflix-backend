@@ -37,4 +37,18 @@ expressAsyncHandler(async(req,res)=>{
     }
 }))
 
+
+UserRouter.post('/removeFavorite', isAuth, 
+    expressAsyncHandler(async(rqe,res)=> {
+        const favoriteId = req.body.favoriteId;
+        try{
+            user.myList.sclice(id => id == favoriteId)
+            console.log(user.myList)
+        }
+        catch(err){
+            console.log(err.message)
+        }
+    })
+)
+
 export default UserRouter;
